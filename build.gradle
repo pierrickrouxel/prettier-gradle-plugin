@@ -19,6 +19,9 @@ gradlePlugin {
   plugins {
     create('prettierPlugin') {
       id = 'fr.pierrickrouxel.prettier'
+      displayName = 'Gradle plugin for Prettier'
+      description = 'Format your code with Gradle thanks to Prettier'
+      tags.addAll('java', 'jpa', 'entity', 'generator')
       implementationClass = 'fr.pierrickrouxel.prettier.gradle.PrettierPlugin'
     }
   }
