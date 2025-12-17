@@ -4,6 +4,7 @@ import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.language.base.plugins.LifecycleBasePlugin;
 
+import com.github.gradle.node.NodeExtension;
 import com.github.gradle.node.NodePlugin;
 
 import fr.pierrickrouxel.prettier.gradle.tasks.PrettierCheckTask;
@@ -18,6 +19,9 @@ public class PrettierPlugin implements Plugin<Project> {
   @Override
   public void apply(Project project) {
     project.getPlugins().apply(NodePlugin.class);
+    project.getExtensions().configure(NodeExtension.class, nodeExtension -> {
+      nodeExtension.getDownload().set(true);
+    });
 
     project
       .getTasks()
@@ -30,7 +34,7 @@ public class PrettierPlugin implements Plugin<Project> {
       .register(PrettierWriteTask.TASK_NAME, PrettierWriteTask.class);
 
     project
-      .task(LifecycleBasePlugin.CHECK_TASK_NAME)
-      .dependsOn(PrettierCheckTask.TASK_NAME);
+      .getTasks().named(LifecycleBasePlugin.CHECK_TASK_NAME)
+      .configure(task -> task.dependsOn(PrettierCheckTask.TASK_NAME));
   }
 }

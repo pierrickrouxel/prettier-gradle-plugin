@@ -3,7 +3,7 @@
     "editorconfig.editorconfig",
     "vscjava.vscode-java-pack",
     "gitlab.gitlab-workflow",
-    "esbenp.prettier-vscode",
+    "prettier.prettier-vscode",
     "vscjava.vscode-lombok"
   ]
 }
