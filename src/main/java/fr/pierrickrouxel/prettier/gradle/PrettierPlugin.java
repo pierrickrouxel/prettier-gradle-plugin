@@ -10,6 +10,9 @@ import fr.pierrickrouxel.prettier.gradle.tasks.PrettierCheckTask;
 import fr.pierrickrouxel.prettier.gradle.tasks.PrettierInstallTask;
 import fr.pierrickrouxel.prettier.gradle.tasks.PrettierWriteTask;
 
+/**
+ * Prettier Gradle Plugin.
+ */
 public class PrettierPlugin implements Plugin<Project> {
 
   @Override

@@ -8,7 +8,7 @@ Format your java projects with gradle.
 
 ## Compatibility
 
-- Java >= 21
+- Java >= 20
 
 ## Getting started
 
