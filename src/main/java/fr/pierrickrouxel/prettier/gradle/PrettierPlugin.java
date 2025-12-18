@@ -33,6 +33,9 @@ public class PrettierPlugin implements Plugin<Project> {
       .getTasks()
       .register(PrettierWriteTask.TASK_NAME, PrettierWriteTask.class);
 
+    // Make sure there's a `check` task
+		project.getPlugins().apply(LifecycleBasePlugin.class);
+
     project
       .getTasks().named(LifecycleBasePlugin.CHECK_TASK_NAME)
       .configure(task -> task.dependsOn(PrettierCheckTask.TASK_NAME));
