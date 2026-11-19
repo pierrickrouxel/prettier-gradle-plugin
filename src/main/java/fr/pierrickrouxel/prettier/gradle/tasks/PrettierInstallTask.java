@@ -16,6 +16,10 @@ public abstract class PrettierInstallTask extends NpmTask {
    */
   public static final String PRETTIER_VERSION = "3.10.1";
   /**
+   * The pinned version of the Prettier Java plugin to install.
+   */
+  public static final String PRETTIER_PLUGIN_JAVA_VERSION = "2.12.0";
+  /**
    * The description of the task.
    */
   public static final String TASK_DESCRIPTION = "Install prettier in project.";
@@ -27,6 +31,11 @@ public abstract class PrettierInstallTask extends NpmTask {
     super();
     setDescription(TASK_DESCRIPTION);
     getArgs()
-      .addAll("install", "--save-dev", "--save-exact", "prettier@" + PRETTIER_VERSION, "prettier-plugin-java");
+      .addAll(
+        "install",
+        "--save-dev",
+        "--save-exact",
+        "prettier@" + PRETTIER_VERSION,
+        "prettier-plugin-java@" + PRETTIER_PLUGIN_JAVA_VERSION);
   }
 }
